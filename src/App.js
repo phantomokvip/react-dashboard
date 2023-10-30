@@ -1,103 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css'
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from '@ant-design/icons';
-import { Layout, Menu, Button, theme } from 'antd';
-const { Header, Sider, Content } = Layout;
+import Layout from "./Layout"
+import Home from "./pages/Home"
+import About from "./pages/About"
+import Login from './pages/Login';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import PrivateRoute from './routes/PrivateRouter';
+
 const App = () => {
-  const [collapsed, setCollapsed] = useState(false);
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
+
   return (
-    <Layout
-      style={{
-        height: "100vh"
-      }}
-    >
-      <Sider
-        trigger={null}
-        collapsible
-        collapsed={collapsed}
-        style={{
-          position: "fixed",
-          left: 0,
-          height: "100vh"
-        }}
-      >
-        <div className="demo-logo-vertical" />
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={['1']}
-          items={[
-            {
-              key: '1',
-              icon: <UserOutlined />,
-              label: 'nav 1',
-            },
-            {
-              key: '2',
-              icon: <VideoCameraOutlined />,
-              label: 'nav 2',
-            },
-            {
-              key: '3',
-              icon: <UploadOutlined />,
-              label: 'nav 3',
-            },
-          ]}
-        />
-      </Sider>
-      <Layout
-        style={{
-          ...(!collapsed
-            ?
-            {
-              marginLeft: "200px",
-              transition: "margin 0.2s",
-            }
-            :
-            {
-              marginLeft: "80px",
-              transition: "margin 0.2s",
-            }
-          )
-        }}
-      >
-        <Header
-          style={{
-            padding: 0,
-            background: colorBgContainer,
-          }}
-        >
-          <Button
-            type="text"
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
-            style={{
-              fontSize: '16px',
-              width: 64,
-              height: 64,
-            }}
-          />
-        </Header>
-        <Content
-          style={{
-            margin: '24px 16px',
-            padding: 24,
-            background: colorBgContainer
-          }}
-        >
-          Content
-        </Content>
-      </Layout>
-    </Layout >
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/*" element={<MainLayout />} />
+      </Routes>
+    </Router>
+  );
+};
+
+const MainLayout = () => {
+  return (
+    <Layout >
+      <Routes>
+        <Route path="/" exact name="Home" element={<PrivateRoute element={<Home />} />} />
+        <Route path="/about" exact name="Home" element={<PrivateRoute element={<About />} />} />
+      </Routes>
+    </Layout>
   );
 };
 export default App;

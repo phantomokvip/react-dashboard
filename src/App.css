@@ -1,9 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
 }
 
-/* Custom CSS for Sidebar */
-.sider-custom {}
+.ps-active {
+  background-color: #1677ff;
+  color: #fff;
+  border-radius: 8px;
+}
 
-/* Custom CSS for Content */
-.content-custom {}
+.ps-menu-button:hover {
+  background-color: transparent !important;
+}
+
+.ant-input-group-addon button {
+  background-color: #ad97e3 !important;
+}
+
+.custom-menu {
+  color: #fff;
+  box-sizing: border-box;
+  width: 95% !important;
+  margin: 0 auto;
+  border-radius: 8px;
+}
