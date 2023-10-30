@@ -1,11 +1,12 @@
 import axios from "axios";
-
+const BEARER = 'Bearer '
+const TOKEN_NAME = 'token'
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
-axios.defaults.headers.post["Content-Type"] = "application/json";
-const BEARER = "Bearer "
 
-const token = localStorage.getItem("token")
-  ? localStorage.getItem("token")
+axios.defaults.headers.post["Content-Type"] = "application/json";
+
+const token = localStorage.getItem(TOKEN_NAME)
+  ? localStorage.getItem(TOKEN_NAME)
   : null;
 
 if (token)
@@ -86,7 +87,7 @@ class AxiosClient {
 
 
 const getToken = () => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem(TOKEN_NAME);
   if (!token) {
     return null;
   } else {

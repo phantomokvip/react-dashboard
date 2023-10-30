@@ -1,0 +1,31 @@
+.ant-btn-primary {
+    background-color: #1677ff;
+}
+
+.ant-collapse {
+    background-color: #fff;
+    border: none;
+}
+
+.ant-collapse-item {
+    border-bottom: none !important;
+}
+
+.ant-collapse-header {
+    background-color: #ad97e3;
+    max-width: 170px;
+    border-radius: 8px !important;
+
+}
+
+.ant-collapse-content {
+    border-top: none !important;
+}
+
+.ant-table-cell {
+    text-align: center;
+}
+
+.ant-table-wrapper .ant-table-thead tr th {
+    text-align: center;
+}

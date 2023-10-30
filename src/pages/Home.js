@@ -2,8 +2,8 @@ import React from 'react';
 
 const Home = () => (
     <div>
-        <h1>Trang chủ</h1>
-        <p>Nội dung trang chủ ở đây.</p>
+        <h1 className='text-2xl'>Dashboard</h1>
+
     </div>
 );
 

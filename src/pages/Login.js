@@ -17,6 +17,7 @@ import { setAuthorization } from "../services/axios-client";
 
 
 const Login = () => {
+    console.log(process.env.REACT_APP_API_DOMAIN)
     const navigate = useNavigate();
     const [form] = Form.useForm();
     const [loading, setLoading] = useState(false);
@@ -34,11 +35,11 @@ const Login = () => {
 
         try {
             let result = await login(data);
-
-            if (result?.status === 200) {
-                localStorage.setItem("token", result.data.token)
+            console.log(result.user)
+            if (result?.user) {
+                localStorage.setItem("token", "true")
                 message.success("Đăng nhập thành công!!");
-                setAuthorization(result?.data.token);
+                setAuthorization(true);
                 navigate('/');
             }
 

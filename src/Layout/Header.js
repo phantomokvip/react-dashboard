@@ -18,17 +18,9 @@ const HeaderMain = ({ collapsed, setCollapsed }) => {
 
     const handleLogout = () => {
         localStorage.clear()
-        navigate("/admin/login");
+        navigate("/login");
     };
     const items = [
-        {
-            label: <button onClick={handleLogout} > Đăng Nhập</button >,
-            key: '0',
-            icon: <LoginOutlined />,
-        },
-        {
-            type: 'divider',
-        },
         {
             label: <button onClick={handleLogout} > Quay Lại</button >,
             key: '3',
@@ -43,16 +35,6 @@ const HeaderMain = ({ collapsed, setCollapsed }) => {
                 background: colorBgContainer,
             }}
         >
-            {/* <Button
-                type="text"
-                icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-                onClick={() => setCollapsed(!collapsed)}
-                style={{
-                    fontSize: '16px',
-                    width: 64,
-                    height: 64,
-                }}
-            /> */}
             <div className='flex justify-between items-center'>
                 <div className='flex items-center'>
                     <Button
